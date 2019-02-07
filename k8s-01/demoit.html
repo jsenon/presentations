@@ -1,0 +1,704 @@
+<h2> Kubernetes 01</h2>
+<h3> <quoted>“Containerization transforms the data center 
+</br>from being machine-oriented 
+    to beingapplication-oriented”</quoted></h3>
+<h3>Burns et al., Borg, Omega, and Kubernetes, 2016</h3>
+    <div class="presentation">
+        <a href="https://twitter.com/_jsenon"><img src="/images/Twitter_Logo_Blue.png" height="42" width="42" /></a> _jsenon
+        <a href="https://github.com/jsenon"><img src="/images/Octocat.png" height="42" width="42"/></a> jsenon 
+    </div>
+
+
+---
+
+<div class="logos">
+        <img src="/images/cncf-color.png" />
+</div>
+---
+
+    <div class="center">
+       <li>Founded in 2015</li> 
+       <li>Cloud native technologies empower organizations 
+           to build and run scalable applications in modern, dynamic environments such as public, 
+           private, and hybrid clouds.</li>
+        <li>Seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects.</li>
+        <li>Help project to grow</li>
+        <quoted>https://github.com/cncf/toc/blob/master/DEFINITION.md</quoted>
+    </div>
+
+
+---
+
+<div class="logos">
+        <div>Graduated</div>
+    <img src="/images/graduated.png" />
+</div>
+
+---
+
+<div class="logos">
+        <div>Incubated</div>
+        <img  src="/images/incubated.png" />
+    </div>
+
+---
+
+<div class="logos">
+        <div>Sandboxed</div>
+    <img  src="/images/sandboxed.png" />
+</div>
+
+---
+
+<div class="logos">
+        <div>Landscape</div>
+    <img  src="/images/landscape.png" />
+</div>
+<quoted>https://landscape.cncf.io/images/landscape.png</quoted>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img src="/images/Kubernetes-icon-color.png"/> 
+            <b>Kubernetess</b>
+            Greek for "governor", "helmsman" or "captain"
+        </div>
+       
+</div>
+
+---
+
+<div class="center">
+
+    <li>Originally named Borg</li>
+    <li>Created by Google in 2014 (Joe Beda, Brendan Burns and Craig McLuckie)</li>
+    <li>Released by CNCF on Summer 2015</li>
+    <li>v.1.13 on 13th December 2018</li>
+    <li>Current release: 1.13.3</li>
+
+</div>
+
+---
+
+<div class="center">
+
+Kubernetes is a <b>portable</b>, extensible open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation
+
+</div>
+
+---
+
+<img  src="/images/container1.png" />
+
+---
+
+<img  src="/images/container2.png" />
+
+---
+
+<div class="center">
+
+It orchestrates computing, networking, and storage infrastructure on behalf of user workloads
+
+</br></br>
+
+It provides:
+    <li>Self-Healing</li>
+    <li>Automatic bin-packing</li>
+    <li> scaling and autoscaling (vertical in coming version)</li>
+    <li>Service Discovery and Basic Load balancing</li>
+    <li>Automated rollouts and rollbacks</li>
+    <li>Logging and monitoring</li>
+
+</div>
+
+---
+
+<img  src="/images/start.gif" width="800"/>
+
+---
+
+
+<h2> The basics</h2>
+
+---
+
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/nodes.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Nodes</b>
+                Where your containers run
+        </div>
+        <!-- <div id=c3> </div>  -->
+</div>
+
+---
+
+<h1>Nodes</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/pods.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Pods</b>
+                <li>The atom of scheduling for containers</li>
+                <li>Pods have IPs which are routable</li>
+
+        </div>
+</div>
+
+---
+
+<h1>Pods</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/networking.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Networking</b>
+                Pods can communicate directly with each other even across nodes
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<h1>Pod to Pod</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+</div>
+
+---
+
+<h1>YAML</h1>
+
+<div class="split">
+    <source-code folder="sources"
+        files="pod.yaml"
+        start-lines="2"
+        end-lines="2">
+    </source-code>
+</div>
+
+---
+
+<h1>Apply Yaml</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/svc.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Service</b>
+                <li>A Service has a static IP and DNS entry</li>
+                <li>Act as LoadBalancer</li>
+                <li>Typically, services and pods have IPs only routable by the cluster network</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/label.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Labels</b>
+                <li>Key/value pairs</li>
+                <li>Kubernetes connects things together with labels</li>
+                <li>Grouping mechanism</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<h1>YAML</h1>
+
+<div class="split">
+    <source-code folder="sources"
+        files="pod.yaml svc.yaml"
+        start-lines="5;8"
+        end-lines="6;9">
+    </source-code>
+</div>
+
+---
+
+<h1>Service</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/deployment.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Deployment</b>
+                <li>Deployment is higher level concept that manage replica sets, pods, and provide declarative updates</li>
+                <li>Describe the desired state and k8s controller will change the actual state</li>
+                <li>Deploying new version will result in a rolling-update</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<h1>Deployment and Rolling</h1>
+
+<div class="split" style="height: calc(100% - 25em);" >
+    <web-term path="sources"></web-term>
+    <web-term path="sources"></web-term>
+</div>
+<div class="split" style="height: calc(100% - 30em);">
+    <web-term path="sources"></web-term>
+</div>
+
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/rs.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Replicaset</b>
+                <li>Ensures that a specified number of pods are running</li>
+                <li>Use Deployments to control your Replica Sets</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<h1>Replicaset</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/cm.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Config Map</b>
+                <li>Manage app config</li>
+                <li>Inject config as a virtual volume into your Pods</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/secret.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Secret</b>
+                <li>Manage access to secured something</li>
+                <li>Inject secret as a virtual volume into your Pods</li>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<h1>Tips: Logs</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+
+<h1>Tips: Forwarding</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+    <web-browser src="http://localhost:9010/"></web-browser>
+</div>
+
+<style>
+    p {
+        font-style: italic;
+        font-size: .5em;
+    }
+
+    .split {
+        height: calc(100% - 9em);
+    }
+</style>
+
+---
+
+<h2> Advanced</h2>
+
+---
+
+<img  src="/images/advanced.gif" width="800"/>
+
+---
+
+<div id="wrapper">
+        <div id="c1" >
+                <b>Job</b>
+                <li>Run-to-completion, as opposed to run-forever</li>
+                <li>Built for batch and big-data work</li>
+        </div>
+        <div id="c2" style="text-align: center;">
+
+                <b>CronJob</b>
+                <li>Schedule job execution</li>
+
+        </div>
+</div>
+
+---
+
+
+<div id="wrapper">
+        <div id="c1" style="text-align: left; padding:50px;" >
+                <img  src="/images/volumes.png" /> 
+                <b>Volumes</b>
+                <ul>
+                    <li>Bound to Pod</li>
+                    <li>Look like directories to Containers</li>
+                    <li>Many Volume:
+                        <ul>
+                            <li>EmptyDir</li>
+                            <li>HostPath</li>
+                            <li>CloudProvider (EBS,EFS)</li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+        <div id="c2">
+                <img  src="/images/ns.png" /> 
+                <b>Namespaces</b>
+                <li>Namespace is like a folder</li>
+                <li>Namespaces are intended for use in environments <br> with many users spread across multiple teams, or projects</li>
+
+        </div>
+</div>
+
+---
+
+<h1>Volumes and Namespaces</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+<h1>Volumes</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+    <source-code folder="sources"
+        files="vol.yaml"
+        start-lines="2"
+        end-lines="2">
+    </source-code>
+</div>
+
+---
+
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/hpa.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Horizontal Pod Autoscalling</b>
+                <ul>
+                    <li>Automatically scale pods as needed</li>
+                    <li>Based on:
+                        <ul>
+                            <li>Metric Server (CPU, Mem)</li>
+                            <li>Custom Metric Server like Prometheus</li>
+                        </ul>
+                    </li>
+                </ul>
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<img  src="/images/mindblow.gif" width="800"/>
+
+---
+
+<h1>Pod Autoscalling</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/sts.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Statefulset</b>
+
+                <li>Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods</li>
+                <li>Designed to deploy stateful applications and clustered applications that save data to persistent storage</li>
+                        
+        </div>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/ds.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Daemonset</b>
+
+                <li>DaemonSets attempt to adhere to a one-Pod-per-node model, </br> either across the entire cluster or a subset of nodes.</li>
+                <li>As you add nodes to a node pool, DaemonSets automatically </br> add Pods to the new nodes as needed.</li>
+                    
+
+        </div>
+</div>
+<script src="/js/draw.js"></script>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/lb.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>LoadBalancer</b>
+
+                <li>Use CloudProvider functionality to attach LB to a service</li>
+                    
+
+        </div>
+</div>
+
+---
+
+<h1>LoadBalancer</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+    <source-code folder="sources"
+        files="svc-lb.yaml"
+        start-lines="2"
+        end-lines="2">
+    </source-code>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/ing.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Ingress L7</b>
+
+                <li>An Ingress is a collection of rules that allow inbound connections to reach the cluster services.
+                <li>An Example: Envoy with Istio</li>
+                    
+
+        </div>
+</div>
+
+
+---
+<div class="center">
+    <h2>And more:</h2>
+    <li>Request and Limit</li>
+    <li>QoS</li>
+    <li>Quotas</li>
+    <li>RBAC</li>
+    <li>NetworkPolicy</li>
+    ...
+</div>
+---
+
+<h2> Architecture</h2>
+
+---
+
+<h1>Overview</h1>
+
+<img  src="/images/overview.png"/>
+<script src="/js/draw.js"></script>
+
+---
+
+<h2>Plugin Oriented</h2>
+
+<div id="wrapper">
+        <div id="c1" style="text-align: left; padding:50px;">
+
+            <b>Container Network Interface</b>
+                <li>Flanel</li>
+                <li>Cilium</li>
+                <li>Weave</li>
+                <li>Calico</li>
+
+        </div>
+        <div id="c2">
+                
+            <b>Container Runtime Interface</b>
+                <li>Docker</li>
+                <li>Cri-o</li>
+                <li>Rkt</li>
+                <li>...</li>
+
+        </div>
+        <div id="c3">
+                
+            <b>Container Storage Interface</b>
+                <li>Cinder</li>
+                <li>AWS EBS</li>
+                <li>GCE Persistent disk</li>
+                <li>CephFS</li>
+    
+        </div>
+</div>
+
+---
+
+<h2> Add-on example </h2>
+<div id="wrapper">
+        <div id="c1">
+            <img  src="/images/autosc.png" /> 
+        </div>
+        <div id="c2">
+
+                <b>Cluster Autoscaller</b>
+
+                <li>Automatically resizes clusters based on the demands of the workloads you want to run</li>
+                    
+
+        </div>
+</div>
+
+---
+
+
+<div id="wrapper">
+        <h2> And</h2>
+
+        <div id="c1">
+                <b> Service Mesh</b>
+            <p>
+                The trends of containeri-zation, microservices and hybrid/multi-cloud deployments
+                have created more distributed applications than ever.
+            </p>
+            <p>
+
+                Developers, devops and secops personnel need modern tools to secure,
+                manage and monitor distributed applications.
+            </p>
+        </div>
+        <div id="c2">
+
+                <img  src="/images/istio.png" /> 
+
+                    
+
+        </div>
+</div>
+
+---
+
+<div id="wrapper">
+        <div id="c1">
+                <h2> References</h2>
+        </div>
+        <div id="c2">
+
+            <li>https://kubernetes.io/docs/</li>
+            <li>https://cloud.google.com/kubernetes-engine/docs/concepts/</li>
+            <li>https://thenewstack.io/</li>
+            <li>https://cncf.io</li>
+            <li>https://kubernetes-csi.github.io/docs/Drivers.html</li>
+            <li>https://www.youtube.com/watch?v=PH-2FfFD2PU</li>
+            <li>https://www.youtube.com/watch?v=4ht22ReBjno&t=379s</li>
+
+        </div>
+</div>
+
+Presentation made with demoit https://github.com/dgageot/demoit
+
+---
+
+<h2>Next topics</h2>
+
+<div class="center">
+    <li>Day to day dev with Kubernetes</li>
+    <li>Kubernetes 101: Sysadmin view</li>
+    <li>Kubernetes and Applications /health /ready /metrics, autoscaller based on custom metrics</li>
+    <li>Service Mesh Basic </li>
+    <li>Service Mesh Advanced: Circuit breaker, Retry, OIDC</li>
+    <li>Serverless avec Knative </li>
+</div>
