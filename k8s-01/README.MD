@@ -12,7 +12,7 @@ Have [demoit](https://github.com/dgageot/demoit)
 demoit .
 ```
 
-[Open presentation ](http://localhost:8888)in webbrowser
+[Open presentation](http://localhost:8888) in webbrowser
 
 ## TODO
 
