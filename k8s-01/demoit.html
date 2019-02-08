@@ -8,12 +8,12 @@
         <a href="https://github.com/jsenon"><img src="/images/Octocat.png" height="42" width="42"/></a> jsenon 
     </div>
 
-
 ---
 
 <div class="logos">
         <img src="/images/cncf-color.png" />
 </div>
+
 ---
 
     <div class="center">
@@ -284,6 +284,19 @@ It provides:
 
 ---
 
+<h1>Deployment</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+    <source-code folder="sources"
+        files="deployment.yml svc-deployment.yml"
+        start-lines="2"
+        end-lines="2">
+    </source-code>
+</div>
+
+---
+
 <h1>Deployment and Rolling</h1>
 
 <div class="split" style="height: calc(100% - 25em);" >
@@ -293,7 +306,6 @@ It provides:
 <div class="split" style="height: calc(100% - 30em);">
     <web-term path="sources"></web-term>
 </div>
-
 
 ---
 
@@ -353,6 +365,19 @@ It provides:
 
 ---
 
+<h1>Configmap</h1>
+
+<div class="split">
+    <web-term path="sources"></web-term>
+    <source-code folder="sources"
+        files="configmap.yml cm-deployment.yml"
+        start-lines="6,13;34"
+        end-lines="6,15;43">
+    </source-code>
+</div>
+
+---
+
 <h1>Tips: Logs</h1>
 
 <div class="split">
@@ -406,7 +431,6 @@ It provides:
 
 ---
 
-
 <div id="wrapper">
         <div id="c1" style="text-align: left; padding:50px;" >
                 <img  src="/images/volumes.png" /> 
@@ -434,27 +458,18 @@ It provides:
 
 ---
 
-<h1>Volumes and Namespaces</h1>
-
-<div class="split">
-    <web-term path="sources"></web-term>
-</div>
-
----
-
 <h1>Volumes</h1>
 
 <div class="split">
     <web-term path="sources"></web-term>
     <source-code folder="sources"
-        files="vol.yaml"
-        start-lines="2"
-        end-lines="2">
+        files="vol.yaml vol-deployment.yml"
+        start-lines="11;34"
+        end-lines="11;40">
     </source-code>
 </div>
 
 ---
-
 
 <div id="wrapper">
         <div id="c1">
@@ -483,9 +498,26 @@ It provides:
 
 ---
 
-<h1>Pod Autoscalling</h1>
+<h1>Autoscalling</h1>
 
 <div class="split">
+    <web-term path="sources"></web-term>
+    <source-code folder="sources"
+        files="hpa.yml hpa-deployment.yml"
+        start-lines="6,7,12;36"
+        end-lines="6,7,12;36">
+    </source-code>
+</div>
+
+---
+
+<h1>Autoscalling</h1>
+
+<div class="split" style="height: calc(100% - 25em);" >
+    <web-term path="sources"></web-term>
+    <web-term path="sources"></web-term>
+</div>
+<div class="split" style="height: calc(100% - 30em);">
     <web-term path="sources"></web-term>
 </div>
 
@@ -518,7 +550,6 @@ It provides:
                 <li>DaemonSets attempt to adhere to a one-Pod-per-node model, </br> either across the entire cluster or a subset of nodes.</li>
                 <li>As you add nodes to a node pool, DaemonSets automatically </br> add Pods to the new nodes as needed.</li>
                     
-
         </div>
 </div>
 <script src="/js/draw.js"></script>
@@ -569,8 +600,8 @@ It provides:
         </div>
 </div>
 
-
 ---
+
 <div class="center">
     <h2>And more:</h2>
     <li>Request and Limit</li>
@@ -580,6 +611,7 @@ It provides:
     <li>NetworkPolicy</li>
     ...
 </div>
+
 ---
 
 <h2> Architecture</h2>
@@ -644,7 +676,6 @@ It provides:
 
 ---
 
-
 <div id="wrapper">
         <h2> And</h2>
 
@@ -663,8 +694,6 @@ It provides:
         <div id="c2">
 
                 <img  src="/images/istio.png" /> 
-
-                    
 
         </div>
 </div>

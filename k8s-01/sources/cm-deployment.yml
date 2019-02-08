@@ -16,11 +16,8 @@ spec:
     spec:
       containers:
       - name: demo-istio
-        # image: docker.io/jsenon/demo-istio:latest
         image: docker.io/jsenon/demo-istio:v.0.0.1
         env:
-        # - name: MY_VERSION
-        #   value: "v.0.0.1"
         - name: MY_TARGET_PING_SVC
           value: "demo-istio-pong"
         - name: MY_TARGET_PING_PORT
@@ -34,3 +31,13 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 9010
+        envFrom:
+        - configMapRef:
+            name: special-config
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: special-config-file
